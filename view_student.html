@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Search Student</h2>
+
+<form method="post">
+{% csrf_token %}
+
+Enter Roll Number
+<input type="text" name="roll">
+
+<button type="submit">search</button>
+
+</form>
+
+{% if student %}
+
+<h3>Student Details</h3>
+
+<table>
+
+<tr>
+<th>roll</th>
+<th>name</th>
+<th>age</th>
+<th>course</th>
+</tr>
+
+<tr>
+<td>{{student.roll}}</td>
+<td>{{student.name}}</td>
+<td>{{student.age}}</td>
+<td>{{student.course}}</td>
+</tr>
+
+</table>
+
+{% endif %}
+
+{% if marks %}
+
+<h3>Marks</h3>
+
+<table>
+<tr>
+<th>telugu</th>
+<th>english</th>
+<th>maths</th>
+<th>science</th>
+</tr>
+
+<tr>
+<td>{{marks.telugu}}</td>
+<td>{{marks.english}}</td>
+<td>{{marks.maths}}</td>
+<td>{{marks.science}}</td>
+</tr>
+
+</table>
+
+{% endif %}
+
+{% endblock %}
